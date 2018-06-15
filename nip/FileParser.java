@@ -1,5 +1,6 @@
 // FileParser v0.1
 // Author Niko Pinnis
+// Licence MIT
 
 package nip;
 
@@ -14,23 +15,28 @@ import java.util.Scanner;
 
 public class FileParser {
 
-    private String _target = null;
+    private String _target;
     private List<String> _output;
     private Scanner _handle;
     private String _delimiter = "\n";
 
     public String getDelimiter() {
-        return _delimiter;
+        return this._delimiter;
     }
 
     public void setDelimiter(String delimiter) {
+        if (this._handle != null) this._handle.useDelimiter(delimiter);
         this._delimiter = delimiter;
     }
 
     public List<String> get_output() {
-        return _output;
+        return this._output;
     }
 
+
+    /**
+     * A simple Class for reading the content of a file
+     */
     public FileParser() {
         this._target = ".\\test.txt";
     }
@@ -39,31 +45,36 @@ public class FileParser {
         this._target = _target;
     }
 
-    /*
-    Read all lines from a file and return a List of Strings
-    On error return null
-    If a file path was not provided before calling this return an empty ArrayList
-    */
+
+    /**
+     *
+     Read all lines from a file and return a List of Strings
+     On error return null
+     If a file path was not provided before calling this return an empty ArrayList
+     * @return All lines in a single List
+     */
     public List<String> readAll() {
-        if (_target == null) {
+        if (this._target == null) {
             System.out.println("_target was null returning empty list.");
             return new ArrayList<String>();
         }
         try {
-            _output = Files.readAllLines(Paths.get(_target),StandardCharsets.UTF_8);
+            this._output = Files.readAllLines(Paths.get(this._target),StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
 
 
-        return _output;
+        return this._output;
     }
 
-    /*
-    Read he next line from file and return it
-    I case of EOF or error return null
-    */
+
+    /**
+     Read he next line from file and return it
+     I case of EOF or error return null
+     * @return A String with the next piece of data based on the delimiter
+     */
     public String readNext() {
         if (_target == null) {
             System.out.println("_target was null returning empty list.");
@@ -72,10 +83,16 @@ public class FileParser {
 
         File file = new File(_target);
         try {
-            if(_handle == null)_handle = new Scanner(file);
-            _handle.useDelimiter(this._delimiter);
-            if (_handle.hasNext()) return _handle.next();
-            else return null;
+            if(this._handle == null) {
+                this._handle = new Scanner(file);
+                this._handle.useDelimiter(this._delimiter);
+            }
+            if (this._handle.hasNext()) return this._handle.next();
+            else {
+                this._handle.close();
+                this._handle = null;
+                return null;
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;

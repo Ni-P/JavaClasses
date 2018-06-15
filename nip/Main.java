@@ -13,14 +13,20 @@ public class Main {
 //        System.out.println(fp.getClass().getTypeName());
 
         System.out.println(fp.readAll().toString());
-        System.out.println(fp.readAll().getClass().getSimpleName());
+//        System.out.println(fp.readAll().getClass().getSimpleName());
 
 //        System.out.println("qwe".getClass().getTypeName());
-        System.out.println("qwerty".getClass().getSimpleName());
+//        System.out.println("qwerty".getClass().getSimpleName());
 
 //        System.out.println(fp.readNext().getClass().getSimpleName());
-//        System.out.println(fp.readNext());
-//        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
+        System.out.println(fp.readNext());
 
     }
 }
