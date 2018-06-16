@@ -36,28 +36,31 @@ public class Main {
     }
 
     private static ImageTagger initImageTaggerTest() {
-        ArrayList<ArrayList<String>> testSet = new ArrayList<ArrayList<String>>();
-        ArrayList<String> first = new ArrayList<String>();
-        first.add("path1");
-        first.add("tag1");
-        first.add("tag4");
-        ArrayList<String> second = new ArrayList<String>();
-        second.add("path2");
-        second.add("tag1");
-        second.add("tag2");
-        second.add("tag5");
-        ArrayList<String> third= new ArrayList<String>();
-        third.add("path3");
-        third.add("tag1");
-        third.add("tag2");
-        third.add("tag3");
-        third.add("tag4");
+//        ArrayList<ArrayList<String>> testSet = new ArrayList<ArrayList<String>>();
+//        ArrayList<String> first = new ArrayList<String>();
+//        first.add("path1");
+//        first.add("tag1");
+//        first.add("tag4");
+//        ArrayList<String> second = new ArrayList<String>();
+//        second.add("path2");
+//        second.add("tag1");
+//        second.add("tag2");
+//        second.add("tag5");
+//        ArrayList<String> third= new ArrayList<String>();
+//        third.add("path3");
+//        third.add("tag1");
+//        third.add("tag2");
+//        third.add("tag3");
+//        third.add("tag4");
+//
+//        testSet.add(first);
+//        testSet.add(second);
+//        testSet.add(third);
+        ImageTagger it = new ImageTagger();
+        if(!it.loadFromFile("C:\\Users\\Niko Pinnis\\IdeaProjects\\development\\src\\nip"+"\\tags.txt"))
+            System.out.println("ERROR!!!");
 
-        testSet.add(first);
-        testSet.add(second);
-        testSet.add(third);
-
-        return new ImageTagger(testSet);
+        return it;
     }
 
     public static void FileParserTest() {

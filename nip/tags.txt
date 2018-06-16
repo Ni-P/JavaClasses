@@ -1,0 +1,5 @@
+image1 tag1 tag2
+image2 tag1 tag3
+image3 tag3 tag4
+image4 tag2 tag1 tag4
+image5 tag3 tag5

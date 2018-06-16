@@ -1,4 +1,4 @@
-// FileParser v0.1
+// FileParser v0.2
 // Author Niko Pinnis
 // Licence MIT
 
