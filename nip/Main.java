@@ -11,7 +11,7 @@ public class Main {
 
     }
 
-    public static void ImageTaggerTest() {
+    private static void ImageTaggerTest() {
 
 
         ImageTagger tagger = initImageTaggerTest();
