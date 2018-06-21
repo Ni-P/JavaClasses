@@ -47,6 +47,10 @@ public class ImageTagger {
         return true;
     }
 
+    public Hashtable<String, ArrayList<String>> get_images() {
+        return _images;
+    }
+
     public ArrayList<String> getByTags(String... tag) {
 
         Hashtable<String,ArrayList<String>> defenciveCopy = new Hashtable<>(this._images);
@@ -56,6 +60,7 @@ public class ImageTagger {
         }
 
         ArrayList<String> results = new ArrayList<>();
+
         _parsedImages.forEach((key,value)-> results.add(key));
 
         this._images = new Hashtable<>(defenciveCopy);
