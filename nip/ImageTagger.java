@@ -1,6 +1,6 @@
 /*  ImageTagger v0.2
     Author Niko Pinnis
-    Licence: MIT
+    License: MIT
 */
 
 package nip;

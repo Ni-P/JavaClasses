@@ -5,10 +5,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
 
-        ImageTaggerTest();
-
+//        ImageTaggerTest();
+        testValueParser();
     }
 
     private static void ImageTaggerTest() {
@@ -21,7 +21,7 @@ public class Main {
 
 //        tagger = initImageTaggerTest();
         System.out.println("-------------------------------------------");
-        System.out.println(tagger.getByTags("tag2","tag1").toString());
+        System.out.println(tagger.getByTags("tag2", "tag1").toString());
         System.out.println("-------------------------------------------");
 
 //        tagger = initImageTaggerTest();
@@ -30,7 +30,7 @@ public class Main {
         System.out.println("-------------------------------------------");
 
         System.out.println("-------------------------------------------");
-        System.out.println(tagger.getByTags("tag1","tag5","tag2").toString());
+        System.out.println(tagger.getByTags("tag1", "tag5", "tag2").toString());
         System.out.println("-------------------------------------------");
 
     }
@@ -57,15 +57,20 @@ public class Main {
 //        testSet.add(second);
 //        testSet.add(third);
         ImageTagger it = new ImageTagger();
-        if(!it.loadFromFile("C:\\Users\\Niko Pinnis\\IdeaProjects\\development\\src\\nip"+"\\tags.txt"))
+        if (!it.loadFromFile("C:\\Users\\Niko Pinnis\\IdeaProjects\\development\\src\\nip" + "\\tags.txt"))
             System.out.println("ERROR!!!");
 
         return it;
     }
 
+    public static void testValueParser() {
+        Integer v = ValueParser.parseInt("  1337   ");
+        System.out.println(v);
+    }
+
     public static void FileParserTest() {
 
-        FileParser fp = new FileParser("C:\\Users\\Niko Pinnis\\IdeaProjects\\development\\src\\nip"+"\\test.txt");
+        FileParser fp = new FileParser("C:\\Users\\Niko Pinnis\\IdeaProjects\\development\\src\\nip" + "\\test.txt");
 //        FileParser fp = new FileParser(null);
 
 //        System.out.println(fp.getClass().getTypeName());
@@ -85,6 +90,7 @@ public class Main {
         System.out.println(fp.readNext());
         System.out.println(fp.readNext());
         System.out.println(fp.readNext());
+
 
     }
 }
