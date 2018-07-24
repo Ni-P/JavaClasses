@@ -5,19 +5,22 @@
 
 package nip;
 
+//import com.sun.istack.internal.NotNull;
+
 public class ClosureParser {
 
     public static int countDepth(String string, String[] closures) {
         return countDepth(string, closures[0], closures[1]);
     }
 
+
     public static int countDepth(String string, String closureOpening, String closureClosing) {
         if (string == null || string.length() < 2)
-            return -1;
+            return 0;
 
         int firstOpening = string.indexOf(closureOpening);
         int lastClosing = string.lastIndexOf(closureClosing);
-        if (firstOpening == -1 || lastClosing == -1) return -1;
+        if (firstOpening == -1 || lastClosing == -1) return 0;
         if (firstOpening >= lastClosing) return 0;
 
         StringBuffer s = new StringBuffer(string);
@@ -58,6 +61,7 @@ public class ClosureParser {
         int start = s.indexOf(closureOpening);
         int end = s.lastIndexOf(closureClosing);
         if (start == -1 || end == -1) return "";
+        if(start >= end) return "";
         return string.substring(start + 1, end);
 //        return "";
     }
